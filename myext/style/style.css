@@ -1,0 +1,557 @@
+html,
+body {
+  height: 100%;
+  text-align: center;
+  user-select: none;
+}
+html {
+  display: table;
+  margin: auto;
+}
+body {
+  display: table-cell;
+  vertical-align: middle;
+  /* background-color: rgba(0, 0, 0, 0.89); */
+  background-color: black;
+}
+h1 {
+  font-family: "Patrick Hand", cursive;
+}
+
+/* Logo */
+.logo-icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: url(".././images/time-icon-90x90.png") transparent 5px 50%
+    no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 20px;
+  padding-right: 20px;
+  width: 90px;
+  height: 90px;
+}
+
+/* Signature */
+.signature {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  color: white;
+  font-weight: medium;
+  font-size: calc(0.8vh + 0.8vw);
+}
+
+.signature span {
+  background-image: linear-gradient(
+    to left,
+    #00ffff 0%,
+    #97fba0 25%,
+    #97b1fb 50%,
+    #00ffff 100%
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Clock */
+.clock {
+  color: white;
+  margin-top: 170px;
+  font-size: calc(6vw + 6vh);
+  cursor: default;
+}
+
+/* Buttons */
+.button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: calc(1.8vw + 1.8vh);
+  font-family: "Patrick Hand", cursive;
+  /* display: inline-block; */
+  margin: 10px 10px; /* top bottom */
+  margin-left: calc(2vw + 2vh);
+  margin-right: calc(2vw + 2vh);
+  /* transition-duration: 0.4s; */
+  cursor: pointer;
+}
+
+/* Start Pause Stop Reset */
+#p {
+  font-family: "montserrat";
+  font-size: 3vw;
+  font-weight: bold;
+  letter-spacing: 2px;
+  max-width: 800px;
+  text-align: center;
+}
+
+.colorful {
+  background: -webkit-linear-gradient(
+      left,
+      #00ffff 0%,
+      #97fba0 25%,
+      #97b1fb 50%,
+      #00ffff 100%
+    )
+    repeat;
+  font-family: "montserrat";
+  -webkit-background-clip: text;
+  -ms-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -ms-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation-name: masked-animation;
+  -webkit-animation-duration: 50s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+.colorful:disabled {
+  opacity: 0.3;
+}
+
+@-webkit-keyframes masked-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -8000px -3000px;
+  }
+}
+
+/* Progress Card */
+.progress-card {
+  border: none;
+  height: 4.5rem;
+  width: 15.5rem;
+  position: absolute;
+  bottom: 18vh;
+  right: 1px;
+  background-color: transparent;
+}
+
+.book {
+  height: 4.5rem;
+  width: 15rem;
+  font-size: 2.3rem;
+}
+
+.page {
+  width: 100%;
+  height: 4.5rem;
+}
+.page__1 {
+  /* Front of first page */
+  color: #000;
+  font-weight: bolder;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: all 1s 0.3s;
+  transform-origin: 0 50%;
+  z-index: 2;
+
+  background-color: #1b4d3e;
+  animation-name: progresscover;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes progresscover {
+  from {
+    background-color: #1b4d3e;
+  }
+  to {
+    background-color: #00ff7f;
+  }
+}
+
+.page__1::after {
+  /* Back of first page */
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #424b54;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transform: rotateY(180deg);
+  transition: all 0.3s 0.5s;
+}
+
+.page__2 {
+  /* Front of second page */
+  box-shadow: 0 0 4px rgb(98, 235, 150);
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 4.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  box-shadow: 0 0 15px rgb(98, 235, 150);
+}
+
+.page:hover .page__1 {
+  transform: rotateY(-180deg);
+}
+.page__2::after {
+  /* Back of first page hover */
+  opacity: 2;
+}
+
+.page__2:hover {
+}
+
+/* Goal Card */
+.goal-container {
+  height: 8.7vw;
+  width: 13vw;
+  min-width: 130px;
+  min-height: 130px;
+  position: absolute;
+  top: 37vh;
+  left: 5vw;
+}
+
+.goal-overlay {
+  width: 100%;
+  height: 100%;
+  min-width: 150px;
+  min-height: 180px;
+  opacity: 0;
+  transition: 0.8s ease-in;
+  background-color: #000000;
+  -moz-box-shadow: inset 0 0 15px #75f5ea;
+  -webkit-box-shadow: inset 0 0 15px #75f5ea;
+  box-shadow: inset 0 0 15px #75f5ea;
+  border-radius: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.goal-container:hover .goal-overlay {
+  opacity: 1;
+}
+
+.goal-form {
+  color: white;
+  font-size: 25px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  position: absolute;
+  top: 46%;
+  left: 46%;
+}
+
+#goal-close {
+  color: white;
+  float: right;
+  cursor: pointer;
+  margin-top: 9px;
+  margin-right: 9px;
+}
+
+#table {
+  position: absolute;
+  left: 2px;
+  font-weight: normal;
+}
+
+.goal-input {
+  color: white;
+  font-weight: normal;
+  font-family: "montserrat";
+  font-size: 30px;
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid white;
+  padding: 0;
+  width: 45px;
+  text-align: center;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.goal-input:focus {
+  color: white;
+  font-size: 30px;
+  background: transparent;
+  border-bottom: 1px solid #75f5ea;
+}
+
+.goal-button {
+  background-color: transparent;
+  font-size: 30px;
+  font-family: "montserrat";
+  color: white;
+  border-radius: 2rem;
+  border: 1px solid #75f5ea;
+  width: 110px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 17px;
+  margin-bottom: 2px;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: box-shadow 500ms;
+}
+
+.goal-button:hover {
+  box-shadow: inset 0 0 25px #75f5ea;
+}
+.goal-alert {
+  position: absolute;
+  margin-top: 13.5vh;
+  margin-left: 4rem;
+  font-size: calc(1.05vw + 1.05vh);
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(252, 49, 225),
+    0 0 20px rgb(139, 0, 127);
+}
+
+/* Chart Card */
+.card {
+  padding: 1rem;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  height: 20rem;
+  width: 30rem;
+  margin: auto auto auto auto;
+  background-color: transparent;
+  align-items: center;
+}
+
+/* Motivational card */
+.motivation {
+  padding: 1rem;
+  /* margin: auto; */
+  height: 20px;
+  /* align-items: center;
+  text-align: center; */
+  font-size: calc(1.7vw + 1.7vh);
+  font-family: "Cookie", cursive;
+  width: calc(0.6vw+ 0.6vh);
+  max-width: 60rem;
+  min-width: 40rem;
+  /* position: absolute;
+  top: 4.8vh; */
+  position: absolute;
+  margin-top: 1px;
+}
+
+.multicolor {
+  background-image: linear-gradient(
+    to left,
+    rgb(236, 214, 214),
+    pink,
+    rgb(207, 44, 153),
+    rgb(177, 18, 177),
+    rgb(136, 33, 209),
+    rgb(67, 125, 231),
+    turquoise,
+    rgb(0, 255, 106),
+    rgb(236, 214, 214)
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Dark-light button */
+.dark-light-button {
+  font-family: "Patrick Hand", cursive;
+  background-color: rgba(0, 0, 0, 0.63);
+  box-shadow: inset 0 0 6px rgb(190, 180, 180);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 10rem;
+  border-radius: 4rem;
+  padding: 0 2px;
+  /* animation: backgroundColorChange 1s infinite; */
+  cursor: pointer;
+  margin-bottom: 20px;
+  position: absolute;
+  left: 30px;
+  bottom: 10px;
+}
+.row {
+  padding: 0 1rem;
+  font-size: 130%;
+  font-weight: bold;
+  pointer-events: none;
+}
+.dark-light-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3rem;
+  width: 5rem;
+  background-color: rgb(190, 180, 180);
+  box-shadow: inset 0 0 10px red;
+
+  border-radius: 4rem;
+  /* animation: moveCircleRight 1s infinite; */
+  pointer-events: none;
+}
+/* rgb(243, 40, 125); */
+
+@keyframes moveCircleRight {
+  from {
+    left: 0;
+    background-color: rgb(190, 180, 180);
+  }
+  to {
+    left: 100%;
+    transform: translateX(-100%);
+    background-color: white;
+    box-shadow: inset 0 0 20px red;
+  }
+}
+@keyframes moveCircleLeft {
+  from {
+    left: 100%;
+    transform: translateX(-100%);
+    background-color: white;
+    box-shadow: inset 0 0 20px red;
+  }
+  to {
+    left: 0;
+    background-color: rgb(190, 180, 180);
+  }
+}
+@keyframes backgroundColorChange {
+  from {
+    background-color: rgba(0, 0, 0, 0.63);
+    box-shadow: inset 0 0 6px rgb(190, 180, 180);
+  }
+  to {
+    background-color: white;
+  }
+}
+@keyframes backgroundReverseColorChange {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.63);
+    box-shadow: inset 0 0 6px rgb(190, 180, 180);
+  }
+}
+
+.pomodoro-icon {
+  background: url(".././images/tmt30.png") transparent 5px 50% no-repeat;
+  display: inline-block;
+  margin-top: 4px;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+}
+
+.pause-time {
+  display: none;
+  position: absolute;
+  top: 30vh;
+  right: 10vw;
+  height: 300px;
+  width: 300px;
+}
+
+/* Define your study technique */
+
+@function textShadow($precision, $size, $color) {
+  $value: null;
+  $offset: 0;
+  $length: $size * (1 / $precision) - 1;
+
+  @for $i from 0 through $length {
+    $offset: $offset + $precision;
+    $shadow: $offset + px $offset + px $color;
+    $value: append($value, $shadow, comma);
+  }
+
+  @return $value;
+}
+
+.playful span {
+  position: relative;
+  color: #5362f6;
+  animation: scatter 1.75s infinite;
+}
+
+.playful span:nth-child(2n) {
+  color: #00ffff;
+  animation-delay: 0.3s;
+}
+
+.playful span:nth-child(3n) {
+  color: #97b1fb;
+  animation-delay: 0.15s;
+}
+
+.playful span:nth-child(5n) {
+  color: #555bff;
+  animation-delay: 0.4s;
+}
+
+.playful span:nth-child(7n),
+.playful span:nth-child(11n) {
+  color: #97fba0;
+  animation-delay: 0.25s;
+}
+
+@keyframes scatter {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -10px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+h1 {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: "Archivo Black", "Archivo", sans-serif;
+  font-weight: normal;
+  display: block;
+  width: 100%;
+  max-width: 80vw;
+  min-height: 90px;
+  height: auto;
+  text-align: center;
+  margin-top: 3rem;
+  margin-left: 12px;
+}

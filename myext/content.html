@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/login-style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Chrome Extension</title>
+    <div class="logo-icon"></div>
+    <div class="signature">© <span>Ivana Vasić</span> 2021. All rights reserved.</div>
+
+    <div class="pause-time">
+      <img src=".././images/pause-icon.png" class="goal-image">
+    </div>
+
+    <div class="goal-container">
+      <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+      <h1 class="playful" aria-label="Define your study technique">
+        <span aria-hidden="true">D</span>
+        <span aria-hidden="true">e</span>
+        <span aria-hidden="true">f</span>
+        <span aria-hidden="true">i</span>
+        <span aria-hidden="true">n</span>
+        <span aria-hidden="true">e</span>
+        <span aria-hidden="true" style="visibility: hidden;">s</span>
+        <span aria-hidden="true">y</span>
+        <span aria-hidden="true">o</span>
+        <span aria-hidden="true">u</span>
+        <span aria-hidden="true">r</span>
+        <span aria-hidden="true" style="visibility: hidden;">s</span>
+        <span aria-hidden="true">s</span>
+        <span aria-hidden="true">t</span>
+        <span aria-hidden="true">u</span>
+        <span aria-hidden="true">d</span>
+        <span aria-hidden="true">y</span>
+        <br>
+        <span aria-hidden="true">t</span>
+        <span aria-hidden="true">e</span>
+        <span aria-hidden="true">c</span>
+        <span aria-hidden="true">h</span>
+        <span aria-hidden="true">n</span>
+        <span aria-hidden="true">i</span>
+        <span aria-hidden="true">q</span>
+        <span aria-hidden="true">u</span>
+        <span aria-hidden="true">e</span>
+      </h1>
+
+      <div class="goal-overlay">
+        <i class="material-icons" id="goal-close">close</i>
+        <form method="post" class="goal-form">
+          <table>
+            <tr>
+              <th>Time:</th>
+              <th><input 
+                class="goal-input"
+                placeholder="60"
+                id="tech-time"
+              /></th>
+            </tr>
+            <tr>
+              <th style="color: tomato;">Pause<span style="color: white;">:</span></th>
+              <th><input 
+                class="goal-input"
+                placeholder="15"
+                id="tech-pause"
+              /></th>
+            </tr>
+          </table>
+          <br>
+          <button id="save-goal-button" class="goal-button">Save</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="progress-card">
+      <div class="book">
+        <div class="page">
+          <div class="page__1">
+            <p>PROGRESS</p>
+          </div>
+          <div class="page__2" id="book-page2" style="color: white;">
+            Waiting for it!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-info">
+      <div id="user-menu" style="display: none;">
+        <span class="user-icon"></span>
+      </div>
+
+      <div class="popup">  
+        <div class="popuptext" id="myPopup">
+          <span class="logged-in-user"></span><br>
+          <span class="menu-options" id="set-goal">Define my technique</span><br>
+          <span class="menu-options" id="clear-history">Clear history</span><br>
+          <button id="logout-button" class="log-button">Logout</button>
+        </div>
+      </div>
+
+      <div id="unregistered" style="display: none;">
+        <button id="login-button" class="log-button">Login</button>
+        <button class="register-button">Register</button>
+      </div>
+    </div>
+
+    <div id="signup-modal" class="modal">
+      <form class="modal-content animate" method="post">
+        <div class="container1">
+          <i class="material-icons" id="signup-modal-close" style="color: white; float: right; cursor: pointer;">close</i>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            id="signup-name"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Enter Password"
+            id="signup-psw"
+            required
+          />
+          <button id="signup-done-button" class="form-button">Register</button>
+        </div>
+      </form>
+    </div>
+    
+    <div id="login-modal" class="modal">
+      <form class="modal-content animate" method="post">
+        <div class="container1">
+          <i class="material-icons" id="login-modal-close" style="color: white; float: right; cursor: pointer;">close</i>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            id="login-name"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Enter Password"
+            id="login-psw"
+            required
+          />
+          <button id="login-done-button" class="form-button">Login</button>
+          <hr class="hr-text" data-content="OR" />
+          <div class="googleButton">
+            <span class="google-icon"></span>
+            <span class="buttonText">Continue with Google</span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+  
+    <div class="goal-alert"></div>
+  </head>
+
+  <body class="body-class">
+    <div class="motivation">
+      <span class="multicolor" id="motiv-text"></span>
+    </div>
+
+    <div id="clock" class="clock">00:00:00</div>
+
+    <div class="buttons-div">
+      <button class="button start" id="start-pause" style="display: none;"><div style="color:rgb(255, 46, 46); font-family: montserrat;"><p>Start</p></div></button>
+      <button class="button start" id="start"><div class="colorful"><p>Start</p></div></button>
+      <button class="button pause" id="pause"><div class="colorful"><p>Pause</p></div></button>
+      <button class="button stop" id="stop"><div class="colorful"><p>Stop</p></div></button>
+      <button class="button reset" id="reset"><div class="colorful"><p>Reset</p></div></button>
+    </div>
+
+  <body>
+    <div class="card" id="chart-div" style="display: none;">
+      <canvas id="myChart"></canvas>
+    </div>
+  </body>
+  <footer>
+    <div class="dark-light-button" id="DL-button">
+      <div class="row" style="padding-left: 30px;">Pomodoro</div>
+      <div class="row" style="color: rgba(190, 180, 180, 0.822); padding-bottom: 5px; padding-right: 40px;">my<br>technique</div>
+      <div class="dark-light-circle" id="DL-circle">
+        <div class="pomodoro-icon"></div>
+      </div>
+    </div>
+  </footer>
+  <script src="./content.js"></script>
+  
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "StudyAssist",
+  "version": "1.0.0",
+  "description": "Study time management assistant for students- organize your time and be aware of your productivness.",
+  "manifest_version": 2,
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxHCVtnAXKe+Uvgq+JgW737W2d37+K2p0sJgv5Uvq1dhFcJO79sXT9PiVsGVTTIJsOelHQ7yJA6+qzpUFbgV/RzKna4wjY+YrTvyqXtH2bey+5qJObRyEe/Tj4f0NGvA67zxQXHo4KvXHgs2+BrIIXucrzmX/WeIW0QfCtYRA6wWe4Oid1dxVCkvQKRNtmI2WfL2jF/ZCNglFkjyZiYImSdbpTVdDf9Vyux2ls3W8Hcz/+YnDbZKtqfKB4N/h96cQMGYZD5dKVD9mZigKqbXivjrz7P+0yA5KHtMqA/WIKan2HYcCeponV1t8hI8DDQbtlw3m9IX2I84a6qh+I/Nw2QIDAQAB",
+  "icons": {
+    "48": "./images/time-icon.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "permissions": [
+    "tabs",
+    "idle",
+    "identity",
+    "identity.email",
+    "storage",
+    "activeTab",
+    "webNavigation"
+  ],
+  "oauth2": {
+    "client_id": "154483090163-joiepoq9j1mbede019eap3m8tcfaju8f.apps.googleusercontent.com",
+    "scopes": ["profile email", "https://www.googleapis.com/auth/contacts"]
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net https://rawgit.com; object-src 'self'",
+  "web_accessible_resources": [
+    "./sounds/alarm-pause.mp3",
+    "./sounds/alarm-start.mp3",
+    "./sounds/alarm-sound.mp3"
+  ]
+}
